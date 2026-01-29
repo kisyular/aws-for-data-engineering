@@ -650,26 +650,26 @@ Benefits:
 ┌──────────────────────────────────────────────────┐
 │  INSTANCE TYPE CATEGORIES                        │
 │                                                  │
-│  General Purpose (t2, t3, m5)                   │
-│  └─► Balanced CPU, memory, network              │
-│  └─► Use case: Web servers, small databases     │
-│  └─► Example: t2.micro (Free Tier)              │
+│  General Purpose (t2, t3, m5)                    │
+│  └─► Balanced CPU, memory, network               │
+│  └─► Use case: Web servers, small databases      │
+│  └─► Example: t2.micro (Free Tier)               │
 │                                                  │
-│  Compute Optimized (c5, c6)                     │
-│  └─► High-performance processors                │
-│  └─► Use case: Batch processing, gaming servers │
+│  Compute Optimized (c5, c6)                      │
+│  └─► High-performance processors                 │
+│  └─► Use case: Batch processing, gaming servers  │
 │                                                  │
-│  Memory Optimized (r5, x1)                      │
-│  └─► Fast performance for large datasets        │
-│  └─► Use case: In-memory databases, big data    │
+│  Memory Optimized (r5, x1)                       │
+│  └─► Fast performance for large datasets         │
+│  └─► Use case: In-memory databases, big data     │
 │                                                  │
-│  Storage Optimized (i3, d2)                     │
-│  └─► High sequential read/write                 │
-│  └─► Use case: Data warehousing, Hadoop         │
+│  Storage Optimized (i3, d2)                      │
+│  └─► High sequential read/write                  │
+│  └─► Use case: Data warehousing, Hadoop          │
 │                                                  │
-│  Accelerated Computing (p3, g4)                 │
-│  └─► Hardware accelerators (GPU)                │
-│  └─► Use case: Machine learning, graphics       │
+│  Accelerated Computing (p3, g4)                  │
+│  └─► Hardware accelerators (GPU)                 │
+│  └─► Use case: Machine learning, graphics        │
 └──────────────────────────────────────────────────┘
 ```
 
