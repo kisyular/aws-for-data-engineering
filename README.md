@@ -13,8 +13,8 @@
 9. [AWS S3 - Object Storage](#9-aws-s3)
 10. [Working with S3 SDK](#10-working-with-s3-sdk)
 11. [AWS Lambda - Serverless Computing](#11-aws-lambda)
-12. [AWS Glue & Data Cataloging](#12-aws-glue)
-13. [Building ETL Pipelines](#13-etl-pipelines)
+12. [AWS Glue & Data Cataloging](#12-aws-glue--data-cataloging)
+13. [Building ETL Pipelines](#13-building-etl-pipelines)
 14. [AWS Athena - Query Data](#14-aws-athena)
 
 ---
@@ -63,7 +63,7 @@ Traditional IT (On-Premises)          Cloud Computing
    - Scale down during low demand
    - Automatic or manual scaling
 
-3. **Speed & Agility** ⚡
+3. **Speed & Agility**
    - Deploy resources in minutes
    - Quick experimentation
    - Faster time to market
@@ -446,7 +446,7 @@ regions = {
 
 ### High Availability Example
 
-```
+```string
 ┌───────────────────────────────────────────────┐
 │  Multi-AZ Deployment for High Availability    │
 │                                               │
@@ -474,7 +474,7 @@ regions = {
 
 ### Core Concepts
 
-```
+```hierarchy
 ┌─────────────────────────────────────────────────┐
 │              IAM HIERARCHY                      │
 │                                                 │
@@ -532,7 +532,7 @@ regions = {
 
 ### Hands-On: Create an IAM User
 
-```
+```path
 STEP 1: Navigate to IAM
 ┌──────────────────────────────────────┐
 │ AWS Console → Search "IAM" → IAM    │
@@ -544,18 +544,18 @@ STEP 2: Create User
 │                                      │
 │ User name: developer-1               │
 │ Access type:                         │
-│   ☑ Programmatic access (API/CLI)   │
-│   ☑ AWS Console access               │
+│   - Programmatic access (API/CLI)   │
+│   - AWS Console access               │
 └──────────────────────────────────────┘
 
 STEP 3: Set Permissions
 ┌──────────────────────────────────────┐
 │ Attach existing policies directly:   │
-│   ☑ AmazonS3ReadOnlyAccess          │
-│   ☑ AmazonEC2ReadOnlyAccess         │
+│   - AmazonS3ReadOnlyAccess          │
+│   - AmazonEC2ReadOnlyAccess         │
 │                                      │
 │ OR Add to group:                     │
-│   ☑ Developers (group)               │
+│   - Developers (group)               │
 └──────────────────────────────────────┘
 
 STEP 4: Review and Create
@@ -567,7 +567,7 @@ STEP 4: Review and Create
 
 ### IAM Best Practices
 
-```
+```hierarchy
 DO:
 ├─► Enable MFA on root account
 ├─► Create individual IAM users
@@ -620,7 +620,7 @@ aws sts get-caller-identity
 
 ### What is Virtualization?
 
-```
+```structure
 ┌────────────────────────────────────────────────┐
 │        PHYSICAL SERVER                         │
 │  ┌───────────────────────────────────────┐     │
@@ -646,7 +646,7 @@ Benefits:
 
 ### EC2 Instance Types
 
-```
+```structure
 ┌──────────────────────────────────────────────────┐
 │  INSTANCE TYPE CATEGORIES                        │
 │                                                  │
@@ -675,7 +675,7 @@ Benefits:
 
 ### Hands-On: Launch Your First EC2 Instance
 
-```
+```steps
 STEP 1: Navigate to EC2
 ┌──────────────────────────────────────────────┐
 │ AWS Console → Search "EC2" → Launch Instance│
@@ -686,14 +686,14 @@ STEP 2: Name and Choose AMI
 │ Name: my-first-server                        │
 │                                              │
 │ AMI (Amazon Machine Image):                  │
-│   ☑ Amazon Linux 2023 (Free Tier eligible)  │
+│   - Amazon Linux 2023 (Free Tier eligible)  │
 │   • Ubuntu Server                            │
 │   • Windows Server                           │
 └──────────────────────────────────────────────┘
 
 STEP 3: Choose Instance Type
 ┌──────────────────────────────────────────────┐
-│   ☑ t2.micro (Free Tier)                    │
+│   - t2.micro (Free Tier)                    │
 │      1 vCPU, 1 GB RAM                        │
 └──────────────────────────────────────────────┘
 
@@ -709,8 +709,8 @@ STEP 4: Create Key Pair (for SSH access)
 STEP 5: Network Settings
 ┌──────────────────────────────────────────────┐
 │ Create security group:                       │
-│   ☑ Allow SSH (port 22) from My IP          │
-│   ☑ Allow HTTP (port 80) from anywhere      │
+│   - Allow SSH (port 22) from My IP          │
+│   - Allow HTTP (port 80) from anywhere      │
 └──────────────────────────────────────────────┘
 
 STEP 6: Configure Storage
@@ -766,30 +766,30 @@ echo "<h1>Hello from EC2!</h1>" | sudo tee /var/www/html/index.html
 
 ### EC2 Pricing Models
 
-```
-┌─────────────────────────────────────────────────┐
-│  ON-DEMAND                                      │
+```price-model
+┌────────────────────────────────────────────────┐
+│  ON-DEMAND                                     │
 │  └─► Pay per hour/second                       │
 │  └─► No commitment                             │
 │  └─► Most expensive                            │
 │  └─► Use: Short-term, unpredictable workloads  │
-│                                                 │
+│                                                │
 │  RESERVED INSTANCES                            │
 │  └─► 1 or 3 year commitment                    │
 │  └─► Up to 75% discount                        │
 │  └─► Use: Steady-state apps (databases)        │
-│                                                 │
+│                                                │
 │  SPOT INSTANCES                                │
 │  └─► Bid on unused capacity                    │
 │  └─► Up to 90% discount                        │
 │  └─► Can be terminated anytime                 │
 │  └─► Use: Batch jobs, fault-tolerant apps      │
-│                                                 │
+│                                                │
 │  SAVINGS PLANS                                 │
 │  └─► Commit to usage ($/hour)                  │
 │  └─► Up to 72% discount                        │
 │  └─► More flexible than Reserved               │
-└─────────────────────────────────────────────────┘
+└────────────────────────────────────────────────┘
 ```
 
 ---
@@ -800,71 +800,71 @@ Understanding storage types is crucial for choosing the right solution.
 
 ### Storage Type Comparison
 
-```
+```block-storage
 ┌────────────────────────────────────────────────────────┐
 │  BLOCK STORAGE                                         │
-│  ┌──────────────────────────────────────┐            │
-│  │  [Block 1] [Block 2] [Block 3] ...   │            │
-│  └──────────────────────────────────────┘            │
+│  ┌──────────────────────────────────────┐              │
+│  │  [Block 1] [Block 2] [Block 3] ...   │              │
+│  └──────────────────────────────────────┘              │
 │                                                        │
-│  • Raw storage blocks                                 │
-│  • Attached to ONE instance at a time                 │
-│  • Fast, low-latency                                  │
-│  • Like a hard drive                                  │
-│  • AWS Service: EBS (Elastic Block Store)             │
-│  • Use case: Databases, boot volumes                  │
+│  • Raw storage blocks                                  │
+│  • Attached to ONE instance at a time                  │
+│  • Fast, low-latency                                   │
+│  • Like a hard drive                                   │
+│  • AWS Service: EBS (Elastic Block Store)              │
+│  • Use case: Databases, boot volumes                   │
 └────────────────────────────────────────────────────────┘
 
 ┌────────────────────────────────────────────────────────┐
 │  OBJECT STORAGE (BLOB)                                 │
-│  ┌──────────────────────────────────────┐            │
-│  │  file1.jpg (+ metadata)              │            │
-│  │  file2.pdf (+ metadata)              │            │
-│  │  file3.mp4 (+ metadata)              │            │
-│  └──────────────────────────────────────┘            │
+│  ┌──────────────────────────────────────┐              │
+│  │  file1.jpg (+ metadata)              │              │
+│  │  file2.pdf (+ metadata)              │              │
+│  │  file3.mp4 (+ metadata)              │              │
+│  └──────────────────────────────────────┘              │
 │                                                        │
-│  • Store entire files as objects                      │
-│  • Accessed via HTTP/API                              │
-│  • Massively scalable                                 │
-│  • Like a file system accessible from anywhere        │
-│  • AWS Service: S3 (Simple Storage Service)           │
-│  • Use case: Backups, media files, static websites    │
+│  • Store entire files as objects                       │
+│  • Accessed via HTTP/API                               │
+│  • Massively scalable                                  │
+│  • Like a file system accessible from anywhere         │
+│  • AWS Service: S3 (Simple Storage Service)            │
+│  • Use case: Backups, media files, static websites     │
 └────────────────────────────────────────────────────────┘
 
 ┌────────────────────────────────────────────────────────┐
 │  FILE STORAGE                                          │
-│  ┌──────────────────────────────────────┐            │
-│  │  /shared/                             │            │
-│  │    ├── folder1/                       │            │
-│  │    │   └── file.txt                   │            │
-│  │    └── folder2/                       │            │
-│  └──────────────────────────────────────┘            │
+│  ┌──────────────────────────────────────┐              │
+│  │  /shared/                            │              │
+│  │    ├── folder1/                      │              │
+│  │    │   └── file.txt                  │              │
+│  │    └── folder2/                      │              │
+│  └──────────────────────────────────────┘              │
 │                                                        │
-│  • Hierarchical file structure                        │
-│  • Shared access from multiple instances              │
-│  • Network file system                                │
-│  • AWS Service: EFS (Elastic File System)             │
-│  • Use case: Shared application files, content mgmt   │
+│  • Hierarchical file structure                         │
+│  • Shared access from multiple instances               │
+│  • Network file system                                 │
+│  • AWS Service: EFS (Elastic File System)              │
+│  • Use case: Shared application files, content mgmt    │
 └────────────────────────────────────────────────────────┘
 
 ┌────────────────────────────────────────────────────────┐
 │  DATA LAKE                                             │
-│  ┌──────────────────────────────────────┐            │
-│  │  Raw Data | Processed | Analytics    │            │
-│  │  CSV, JSON, Parquet, Images, Logs... │            │
-│  └──────────────────────────────────────┘            │
+│  ┌──────────────────────────────────────┐              │
+│  │  Raw Data | Processed | Analytics    │              │
+│  │  CSV, JSON, Parquet, Images, Logs... │              │
+│  └──────────────────────────────────────┘              │
 │                                                        │
-│  • Centralized repository                             │
-│  • Structured + Unstructured data                     │
-│  • For analytics and ML                               │
-│  • Built on: S3 + AWS Lake Formation                  │
-│  • Use case: Big data analytics, ML training          │
+│  • Centralized repository                              │
+│  • Structured + Unstructured data                      │
+│  • For analytics and ML                                │
+│  • Built on: S3 + AWS Lake Formation                   │
+│  • Use case: Big data analytics, ML training           │
 └────────────────────────────────────────────────────────┘
 ```
 
 ### Decision Tree
 
-```
+```decision-tree
 Need storage?
     │
     ├─ For EC2 boot/database? → EBS (Block)
@@ -884,21 +884,21 @@ Need storage?
 
 ### S3 Key Concepts
 
-```
+```s3-key-concepts
 ┌─────────────────────────────────────────────────┐
 │  S3 HIERARCHY                                   │
 │                                                 │
 │  BUCKET                                         │
-│  └─► Unique name globally                      │
-│  └─► Created in a region                       │
-│  └─► Example: my-company-data-2024             │
+│  └─► Unique name globally                       │
+│  └─► Created in a region                        │
+│  └─► Example: my-company-data-2024              │
 │      │                                          │
-│      ├─► folder1/                              │
-│      │   ├─► file1.jpg (Object)                │
-│      │   └─► file2.pdf                         │
+│      ├─► folder1/                               │
+│      │   ├─► file1.jpg (Object)                 │
+│      │   └─► file2.pdf                          │
 │      │                                          │
-│      └─► folder2/                              │
-│          └─► data.csv                          │
+│      └─► folder2/                               │
+│          └─► data.csv                           │
 │                                                 │
 │  Each Object has:                               │
 │  • Key (path/filename)                          │
@@ -910,7 +910,7 @@ Need storage?
 
 ### S3 Storage Classes
 
-```
+```s3-storage-classes
 ┌──────────────────────────────────────────────────┐
 │  Storage Class       Cost    Retrieval  Use Case │
 ├──────────────────────────────────────────────────┤
@@ -934,7 +934,7 @@ Need storage?
 
 ### Hands-On: Create an S3 Bucket
 
-```
+```steps
 STEP 1: Navigate to S3
 ┌──────────────────────────────────────────────┐
 │ AWS Console → Search "S3" → Create bucket   │
@@ -952,19 +952,19 @@ STEP 2: Bucket Configuration
 
 STEP 3: Block Public Access
 ┌──────────────────────────────────────────────┐
-│ ☑ Block all public access (RECOMMENDED)     │
+│ - Block all public access (RECOMMENDED)      │
 │   (Keep data private by default)             │
 └──────────────────────────────────────────────┘
 
 STEP 4: Versioning (Optional)
 ┌──────────────────────────────────────────────┐
-│ ☐ Enable versioning                         │
+│ ☐ Enable versioning                          │
 │   (Keep multiple versions of objects)        │
 └──────────────────────────────────────────────┘
 
 STEP 5: Encryption
 ┌──────────────────────────────────────────────┐
-│ ☑ Enable Server-Side Encryption (SSE-S3)    │
+│ - Enable Server-Side Encryption (SSE-S3)     │
 │   (Automatic encryption at rest)             │
 └──────────────────────────────────────────────┘
 
@@ -976,7 +976,7 @@ STEP 6: Create!
 
 ### Upload Files to S3
 
-```
+```steps
 METHOD 1: Console (UI)
 ┌──────────────────────────────────────────────┐
 │ Open your bucket → Upload                    │
@@ -1006,7 +1006,7 @@ aws s3 sync ./local-folder s3://my-learning-bucket-2024-unique/backup/
 
 ### S3 Use Cases
 
-```
+```s3-use-cases
 1. Static Website Hosting
    └─► Host HTML/CSS/JS files
    └─► Enable: Bucket → Properties → Static Website Hosting
@@ -1339,23 +1339,6 @@ def safe_s3_operation(bucket_name, key):
 
 ---
 
-*This is Part 1 of your AWS learning guide. The next sections will cover Lambda, Glue, and Athena with similar depth and hands-on examples.*
-
-**Next Steps:**
-
-1. Practice creating S3 buckets and uploading files
-2. Try the Python SDK examples
-3. Experiment with different storage classes
-4. Set up IAM users with limited S3 permissions
-
-**Coming Next:**
-
-- AWS Lambda (Serverless Functions)
-- AWS Glue (ETL Service)
-- AWS Athena (Query S3 data with SQL)
-
----
-
 ## 11. AWS Lambda
 
 **AWS Lambda** is a serverless compute service that runs your code without provisioning servers.
@@ -1364,71 +1347,71 @@ def safe_s3_operation(bucket_name, key):
 
 Serverless doesn't mean "no servers" - it means you don't manage servers.
 
-```
+```structure
 ┌─────────────────────────────────────────────────┐
 │  TRADITIONAL vs SERVERLESS                      │
 ├─────────────────────────────────────────────────┤
 │                                                 │
 │  TRADITIONAL (EC2):                             │
-│  ┌──────────────────────────────┐              │
-│  │  YOU manage:                 │              │
-│  │  • Provision servers         │              │
-│  │  • Install OS & runtime      │              │
-│  │  • Patch & update            │              │
-│  │  • Scale manually            │              │
-│  │  • Pay 24/7 (even if idle)   │              │
-│  └──────────────────────────────┘              │
+│  ┌──────────────────────────────┐               │
+│  │  YOU manage:                 │               │
+│  │  • Provision servers         │               │
+│  │  • Install OS & runtime      │               │
+│  │  • Patch & update            │               │
+│  │  • Scale manually            │               │
+│  │  • Pay 24/7 (even if idle)   │               │
+│  └──────────────────────────────┘               │
 │                                                 │
 │  SERVERLESS (Lambda):                           │
-│  ┌──────────────────────────────┐              │
-│  │  YOU provide:                │              │
-│  │  • Just your code            │              │
-│  │                              │              │
-│  │  AWS handles:                │              │
-│  │  • Infrastructure            │              │
-│  │  • Scaling (automatic)       │              │
-│  │  • High availability         │              │
-│  │  • Pay per execution only    │              │
-│  └──────────────────────────────┘              │
+│  ┌──────────────────────────────┐               │
+│  │  YOU provide:                │               │
+│  │  • Just your code            │               │
+│  │                              │               │
+│  │  AWS handles:                │               │
+│  │  • Infrastructure            │               │
+│  │  • Scaling (automatic)       │               │
+│  │  • High availability         │               │
+│  │  • Pay per execution only    │               │
+│  └──────────────────────────────┘               │
 └─────────────────────────────────────────────────┘
 ```
 
 ### Lambda Key Concepts
 
-```
+```lambda-key-concepts
 ┌─────────────────────────────────────────────────┐
 │  LAMBDA FUNCTION                                │
 │                                                 │
-│  ┌──────────────────────────────┐              │
-│  │  TRIGGER (Event Source)      │              │
-│  │  • API Gateway               │              │
-│  │  • S3 Event                  │              │
-│  │  • CloudWatch Event          │              │
-│  │  • Manual Invoke             │              │
-│  └─────────┬────────────────────┘              │
+│  ┌──────────────────────────────┐               │
+│  │  TRIGGER (Event Source)      │               │
+│  │  • API Gateway               │               │
+│  │  • S3 Event                  │               │
+│  │  • CloudWatch Event          │               │
+│  │  • Manual Invoke             │               │
+│  └─────────┬────────────────────┘               │
 │            │                                    │
 │            ▼                                    │
-│  ┌──────────────────────────────┐              │
-│  │  LAMBDA FUNCTION             │              │
-│  │  • Your code (handler)       │              │
-│  │  • Runtime (Python, Node.js) │              │
-│  │  • Memory: 128MB - 10GB      │              │
-│  │  • Timeout: max 15 minutes   │              │
-│  └─────────┬────────────────────┘              │
+│  ┌──────────────────────────────┐               │
+│  │  LAMBDA FUNCTION             │               │
+│  │  • Your code (handler)       │               │
+│  │  • Runtime (Python, Node.js) │               │
+│  │  • Memory: 128MB - 10GB      │               │
+│  │  • Timeout: max 15 minutes   │               │
+│  └─────────┬────────────────────┘               │
 │            │                                    │
 │            ▼                                    │
-│  ┌──────────────────────────────┐              │
-│  │  OUTPUT                       │              │
-│  │  • Return value              │              │
-│  │  • Write to S3/DB            │              │
-│  │  • Call another service      │              │
-│  └──────────────────────────────┘              │
+│  ┌──────────────────────────────┐               │
+│  │  OUTPUT                      │               │
+│  │  • Return value              │               │
+│  │  • Write to S3/DB            │               │
+│  │  • Call another service      │               │
+│  └──────────────────────────────┘               │
 └─────────────────────────────────────────────────┘
 ```
 
 ### Lambda Pricing
 
-```
+```lambda-pricing
 PAY FOR:
   1. Number of requests
      • First 1 million requests/month: FREE
@@ -1448,7 +1431,7 @@ EXAMPLE:
 
 #### Step 1: Create Function via Console
 
-```
+```lambda-create-function
 STEP 1: Navigate to Lambda
 ┌──────────────────────────────────────────────┐
 │ AWS Console → Search "Lambda" → Create      │
@@ -1510,7 +1493,7 @@ def lambda_handler(event, context):
 
 #### Step 3: Test Your Function
 
-```
+```lambda-test-function
 IN CONSOLE:
 ┌──────────────────────────────────────────────┐
 │ 1. Click "Test" button                       │
@@ -1590,7 +1573,7 @@ def lambda_handler(event, context):
 
 #### Configure S3 Trigger
 
-```
+```clambda-s3-trigger
 IN LAMBDA CONSOLE:
 ┌──────────────────────────────────────────────┐
 │ 1. Click "Add trigger"                       │
@@ -1721,18 +1704,18 @@ aws lambda update-function-code \
 
 ### Lambda Layers (Reusable Dependencies)
 
-```
-┌─────────────────────────────────────────────────┐
-│  LAMBDA LAYERS                                  │
-│                                                 │
+```lambda-layers
+┌───────────────────────────────────────────────┐
+│  LAMBDA LAYERS                                │
+│                                               │
 │  ┌──────────────────┐  ┌──────────────────┐   │
 │  │  Function 1      │  │  Function 2      │   │
 │  │  (Your code)     │  │  (Your code)     │   │
 │  └────────┬─────────┘  └────────┬─────────┘   │
-│           │                     │              │
-│           └──────────┬──────────┘              │
-│                      │                         │
-│                      ▼                         │
+│           │                     │             │
+│           └──────────┬──────────┘             │
+│                      │                        │
+│                      ▼                        │
 │           ┌──────────────────┐                │
 │           │  Lambda Layer    │                │
 │           │  (Shared libs)   │                │
@@ -1740,52 +1723,52 @@ aws lambda update-function-code \
 │           │  • pandas        │                │
 │           │  • numpy         │                │
 │           └──────────────────┘                │
-│                                                 │
-│  Benefits:                                      │
-│  • Reduce deployment package size              │
-│  • Share dependencies across functions         │
-│  • Faster deployments                          │
-└─────────────────────────────────────────────────┘
+│                                               │
+│  Benefits:                                    │
+│  • Reduce deployment package size             │
+│  • Share dependencies across functions        │
+│  • Faster deployments                         │
+└───────────────────────────────────────────────┘
 ```
 
 ### Lambda Best Practices
 
-```
+```lambda-best-practices
 PERFORMANCE:
-  ✓ Minimize cold starts
+  * Minimize cold starts
     - Keep functions warm with scheduled invokes
     - Use provisioned concurrency for critical apps
   
-  ✓ Optimize memory allocation
+  * Optimize memory allocation
     - More memory = more CPU power
     - Test different memory settings
   
-  ✓ Reuse connections
+  * Reuse connections
     - Initialize clients outside handler
     - Reuse across invocations
 
 SECURITY:
-  ✓ Use IAM roles (not hardcoded credentials)
-  ✓ Apply least privilege permissions
-  ✓ Encrypt environment variables
-  ✓ Use VPC for private resource access
+  * Use IAM roles (not hardcoded credentials)
+  * Apply least privilege permissions
+  * Encrypt environment variables
+  * Use VPC for private resource access
 
 COST OPTIMIZATION:
-  ✓ Set appropriate timeout (don't use max)
-  ✓ Use correct memory allocation
-  ✓ Clean up unused functions
-  ✓ Monitor with CloudWatch
+  * Set appropriate timeout (don't use max)
+  * Use correct memory allocation
+  * Clean up unused functions
+  * Monitor with CloudWatch
 
 ERROR HANDLING:
-  ✓ Implement retry logic
-  ✓ Use dead letter queues (DLQ)
-  ✓ Log errors comprehensively
-  ✓ Set up CloudWatch alarms
+  * Implement retry logic
+  * Use dead letter queues (DLQ)
+  * Log errors comprehensively
+  * Set up CloudWatch alarms
 ```
 
 ### Lambda Use Cases
 
-```
+```lambda-use-cases
 1. Real-time File Processing
    └─► S3 upload triggers Lambda to process images,
        videos, or documents
@@ -1821,11 +1804,11 @@ ERROR HANDLING:
 
 ### What is ETL?
 
-```
-┌─────────────────────────────────────────────────┐
-│  ETL PROCESS                                    │
-│                                                 │
-│  EXTRACT                                        │
+```what-is-etl
+┌────────────────────────────────────────────────┐
+│  ETL PROCESS                                   │
+│                                                │
+│  EXTRACT                                       │
 │  ┌────────────────────────────────┐            │
 │  │ Pull data from sources:        │            │
 │  │ • Databases                    │            │
@@ -1833,9 +1816,9 @@ ERROR HANDLING:
 │  │ • APIs                         │            │
 │  │ • Streaming data               │            │
 │  └─────────┬──────────────────────┘            │
-│            │                                    │
-│            ▼                                    │
-│  TRANSFORM                                      │
+│            │                                   │
+│            ▼                                   │
+│  TRANSFORM                                     │
 │  ┌────────────────────────────────┐            │
 │  │ Clean and modify data:         │            │
 │  │ • Remove duplicates            │            │
@@ -1844,55 +1827,55 @@ ERROR HANDLING:
 │  │ • Join datasets                │            │
 │  │ • Aggregate                    │            │
 │  └─────────┬──────────────────────┘            │
-│            │                                    │
-│            ▼                                    │
-│  LOAD                                           │
+│            │                                   │
+│            ▼                                   │
+│  LOAD                                          │
 │  ┌────────────────────────────────┐            │
 │  │ Write to destinations:         │            │
 │  │ • Data warehouse (Redshift)    │            │
 │  │ • Data lake (S3)               │            │
 │  │ • Database                     │            │
 │  └────────────────────────────────┘            │
-└─────────────────────────────────────────────────┘
+└────────────────────────────────────────────────┘
 ```
 
 ### Glue Components
 
-```
-┌─────────────────────────────────────────────────┐
-│  AWS GLUE ARCHITECTURE                          │
-│                                                 │
-│  1. GLUE DATA CATALOG                           │
+```glue-components
+┌────────────────────────────────────────────────┐
+│  AWS GLUE ARCHITECTURE                         │
+│                                                │
+│  1. GLUE DATA CATALOG                          │
 │     ┌──────────────────────────────┐           │
 │     │ Metadata repository          │           │
 │     │ • Databases                  │           │
 │     │ • Tables (schema info)       │           │
 │     │ • Partitions                 │           │
 │     └──────────────────────────────┘           │
-│                                                 │
-│  2. GLUE CRAWLERS                               │
+│                                                │
+│  2. GLUE CRAWLERS                              │
 │     ┌──────────────────────────────┐           │
 │     │ Automatically discover data  │           │
 │     │ • Scan S3/databases          │           │
 │     │ • Infer schema               │           │
 │     │ • Update catalog             │           │
 │     └──────────────────────────────┘           │
-│                                                 │
-│  3. GLUE ETL JOBS                               │
+│                                                │
+│  3. GLUE ETL JOBS                              │
 │     ┌──────────────────────────────┐           │
 │     │ Transform data               │           │
 │     │ • Python/Spark code          │           │
 │     │ • Visual editor              │           │
 │     │ • Schedule or trigger        │           │
 │     └──────────────────────────────┘           │
-│                                                 │
-│  4. GLUE DATA QUALITY                           │
+│                                                │
+│  4. GLUE DATA QUALITY                          │
 │     ┌──────────────────────────────┐           │
 │     │ Validate data                │           │
 │     │ • Define rules               │           │
 │     │ • Monitor quality            │           │
 │     └──────────────────────────────┘           │
-└─────────────────────────────────────────────────┘
+└────────────────────────────────────────────────┘
 ```
 
 ### Hands-On: Create a Glue Crawler
@@ -1933,7 +1916,7 @@ print("Sample data uploaded to S3!")
 
 #### Step 2: Create Glue Database
 
-```
+```create-glue-database
 IN GLUE CONSOLE:
 ┌──────────────────────────────────────────────┐
 │ AWS Console → Glue → Databases               │
@@ -1946,7 +1929,7 @@ IN GLUE CONSOLE:
 
 #### Step 3: Create and Run Crawler
 
-```
+```create-run-crawler
 IN GLUE CONSOLE:
 ┌──────────────────────────────────────────────┐
 │ Glue → Crawlers → Create crawler             │
@@ -1987,7 +1970,7 @@ RESULT:
 
 ### View Discovered Data
 
-```
+```view-discovered-data
 IN GLUE CONSOLE:
 ┌──────────────────────────────────────────────┐
 │ Glue → Tables → raw_customers                │
@@ -2007,35 +1990,35 @@ IN GLUE CONSOLE:
 
 ### Create a Glue ETL Job (Visual Editor)
 
-```
+```create-glue-etl-job
 IN GLUE CONSOLE:
-┌──────────────────────────────────────────────┐
-│ Glue → ETL Jobs → Visual ETL                 │
-│                                              │
-│ STEP 1: Source                               │
-│   Add source → Data Catalog table            │
-│   Database: my_data_lake                     │
-│   Table: raw_customers                       │
-│                                              │
-│ STEP 2: Transform                            │
-│   Add transform → Filter                     │
-│   Condition: country == "USA"                │
-│                                              │
-│   Add transform → Select Fields              │
-│   Keep: customer_id, name, email             │
-│                                              │
-│ STEP 3: Target                               │
-│   Add target → S3                            │
-│   Format: Parquet                            │
+┌─────────────────────────────────────────────────┐
+│ Glue → ETL Jobs → Visual ETL                    │
+│                                                 │
+│ STEP 1: Source                                  │
+│   Add source → Data Catalog table               │
+│   Database: my_data_lake                        │
+│   Table: raw_customers                          │
+│                                                 │
+│ STEP 2: Transform                               │
+│   Add transform → Filter                        │
+│   Condition: country == "USA"                   │
+│                                                 │
+│   Add transform → Select Fields                 │
+│   Keep: customer_id, name, email                │
+│                                                 │
+│ STEP 3: Target                                  │
+│   Add target → S3                               │
+│   Format: Parquet                               │
 │   S3 path: s3://bucket/processed/usa-customers/ │
-│                                              │
-│ STEP 4: Job details                          │
-│   Name: filter-usa-customers                 │
-│   IAM role: AWSGlueServiceRole-Demo          │
-│   Type: Spark                                │
-│                                              │
-│ STEP 5: Save and run                         │
-└──────────────────────────────────────────────┘
+│                                                 │
+│ STEP 4: Job details                             │
+│   Name: filter-usa-customers                    │
+│   IAM role: AWSGlueServiceRole-Demo             │
+│   Type: Spark                                   │
+│                                                 │
+│ STEP 5: Save and run                            │
+└─────────────────────────────────────────────────┘
 ```
 
 ### Glue ETL Job (Python Script)
@@ -2145,10 +2128,10 @@ job.commit()
 
 ### Schedule Glue Job
 
-```
+```schedule-glue-job
 IN GLUE CONSOLE:
 ┌──────────────────────────────────────────────┐
-│ Job details → Triggers → Add trigger          │
+│ Job details → Triggers → Add trigger         │
 │                                              │
 │ Trigger type: Schedule                       │
 │ Name: daily-etl-trigger                      │
@@ -2198,7 +2181,7 @@ Complete end-to-end ETL pipeline example.
 
 ### Pipeline Architecture
 
-```
+```pipeline-architecture
 ┌──────────────────────────────────────────────────┐
 │  ETL PIPELINE FLOW                               │
 │                                                  │
@@ -2223,7 +2206,7 @@ Complete end-to-end ETL pipeline example.
 │  4. QUERY                                        │
 │     ┌────────────┐                               │
 │     │ Athena     │ → SQL queries on processed    │
-│     │            │    data without loading        │
+│     │            │    data without loading       │
 │     └────────────┘                               │
 │                                                  │
 │  5. VISUALIZE (Optional)                         │
@@ -2287,7 +2270,7 @@ print(f"Sample record: {sales_data[0]}")
 
 #### Step 2: Create Crawler for Sales Data
 
-```
+```create-sales-crawler
 Follow same process as before:
 1. Create crawler: sales-crawler
 2. S3 path: s3://bucket/data-lake/raw/sales/
@@ -2388,7 +2371,7 @@ job.commit()
 
 #### Step 4: Create Crawlers for Processed Data
 
-```
+```create-processed-crawlers
 Create separate crawlers for:
 1. by-region data
 2. by-product data  
@@ -2406,21 +2389,21 @@ This makes processed data queryable via Athena
 
 ### Athena Overview
 
-```
+```athena-overview
 ┌─────────────────────────────────────────────────┐
 │  ATHENA WORKFLOW                                │
 │                                                 │
 │  1. Data in S3                                  │
-│     └─► CSV, JSON, Parquet, ORC, etc.          │
+│     └─► CSV, JSON, Parquet, ORC, etc.           │
 │                                                 │
 │  2. Schema in Glue Data Catalog                 │
 │     └─► Table definitions                       │
 │                                                 │
 │  3. Query with SQL                              │
-│     └─► SELECT * FROM table WHERE ...          │
+│     └─► SELECT * FROM table WHERE ...           │
 │                                                 │
 │  4. Results                                     │
-│     └─► View in console or save to S3          │
+│     └─► View in console or save to S3           │
 │                                                 │
 │  KEY FEATURES:                                  │
 │  • No servers to manage                         │
@@ -2435,17 +2418,17 @@ This makes processed data queryable via Athena
 
 #### Step 1: Setup Athena
 
-```
+```setup-athena
 IN ATHENA CONSOLE:
-┌──────────────────────────────────────────────┐
-│ AWS Console → Athena                         │
-│                                              │
-│ First time setup:                            │
-│ 1. Settings → Manage                         │
-│ 2. Query result location:                    │
-│    s3://my-learning-bucket-.../athena-results/│
-│ 3. Save                                      │
-└──────────────────────────────────────────────┘
+┌────────────────────────────────────────────────┐
+│ AWS Console → Athena                           │
+│                                                │
+│ First time setup:                              │
+│ 1. Settings → Manage                           │
+│ 2. Query result location:                      │
+│    s3://my-learning-bucket-.../athena-results/ │
+│ 3. Save                                        │
+└────────────────────────────────────────────────┘
 ```
 
 #### Step 2: Basic Queries
@@ -2605,32 +2588,32 @@ LIMIT 10;
 
 ### Athena Best Practices
 
-```
+```athena-best-practices
 COST OPTIMIZATION:
-  ✓ Use columnar formats (Parquet, ORC)
+  * Use columnar formats (Parquet, ORC)
     - Scan only needed columns
     - 5-10x cheaper than CSV/JSON
   
-  ✓ Partition data
+  * Partition data
     - By date, region, etc.
     - Scan only relevant partitions
   
-  ✓ Compress data
+  * Compress data
     - Gzip, Snappy for Parquet
     - Reduce data scanned
   
-  ✓ Use LIMIT for testing
+  * Use LIMIT for testing
     - Test queries with small data first
   
-  ✓ Optimize JOIN operations
+  * Optimize JOIN operations
     - Put smaller table first in JOIN
     - Filter before joining
 
 PERFORMANCE:
-  ✓ Use appropriate data types
-  ✓ Create statistics
-  ✓ Avoid SELECT * (specify columns)
-  ✓ Use WHERE clauses effectively
+  * Use appropriate data types
+  * Create statistics
+  * Avoid SELECT * (specify columns)
+  * Use WHERE clauses effectively
 ```
 
 ### Query Athena with boto3
@@ -2706,7 +2689,7 @@ for row in results:
 
 ### Complete Data Lake Workflow
 
-```
+```data-lake-workflow
 COMPLETE PIPELINE:
 ┌─────────────────────────────────────────────────┐
 │                                                 │
@@ -2797,7 +2780,7 @@ COMPLETE PIPELINE:
 
 ### Additional AWS Services to Explore
 
-```
+```additional-aws-services
 DATABASES:
   • RDS (Relational Database Service)
   • DynamoDB (NoSQL)
@@ -2829,7 +2812,7 @@ MACHINE LEARNING:
 
 ### Certification Paths
 
-```
+```certification-paths
 1. AWS Certified Cloud Practitioner
    └─► Entry level, foundational knowledge
 
@@ -2854,15 +2837,15 @@ MACHINE LEARNING:
 
 ### Cost Management Tips
 
-```
+```cost-management-tips
 STAY WITHIN FREE TIER:
-✓ Set up billing alerts
-✓ Monitor usage in Billing Dashboard
-✓ Stop EC2 instances when not in use
-✓ Delete unused resources
-✓ Use AWS Cost Explorer
-✓ Enable AWS Budgets
-✓ Review monthly bills carefully
+* Set up billing alerts
+* Monitor usage in Billing Dashboard
+* Stop EC2 instances when not in use
+* Delete unused resources
+* Use AWS Cost Explorer
+* Enable AWS Budgets
+* Review monthly bills carefully
 
 FREE TIER LIMITS:
 • Lambda: 1M requests/month
@@ -2873,7 +2856,3 @@ FREE TIER LIMITS:
 ```
 
 ---
-
-**End of AWS Learning Guide**
-
-You now have a comprehensive foundation in AWS cloud services. Keep practicing, building projects, and exploring new services. The cloud is constantly evolving, so continuous learning is key!
